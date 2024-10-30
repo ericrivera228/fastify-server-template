@@ -9,9 +9,8 @@ fastify.get('/', async () => {
 })
 
 const start = async () => {
-
   try {
-    await fastify.listen({ port: Number(process.env.PORT), host: process.env.HOST });
+    await fastify.listen({ port: +process.env.PORT!, host: process.env.HOST });
   } catch (err) {
     console.error(err);
     process.exit(1);

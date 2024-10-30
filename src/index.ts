@@ -8,11 +8,10 @@ fastify.get('/', async () => {
   return 'Hey, listen! 🧚';
 })
 
-
-// prod: port: 3000, host: '0.0.0.0'
 const start = async () => {
+
   try {
-    await fastify.listen({ port: 8080, host: 'localhost' });
+    await fastify.listen({ port: Number(process.env.PORT), host: process.env.HOST });
   } catch (err) {
     console.error(err);
     process.exit(1);
